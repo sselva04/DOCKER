@@ -14,4 +14,4 @@ ENV NAME world
 
 # Run a command to start application
 
-CMD["python3","app.py"]
+CMD ["python3","app.py"]
