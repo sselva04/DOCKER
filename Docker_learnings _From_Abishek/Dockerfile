@@ -9,8 +9,8 @@ COPY . /app
 # Install the necessary packages
 RUN apt-get update && apt-get upgrade
 
-RUN apt-get install -y pyhon3
 
+RUN apt-get install -y python3 python3-pip
 # Set environment variables
 ENV NAME world
 
