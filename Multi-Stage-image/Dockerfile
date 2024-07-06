@@ -6,7 +6,7 @@ FROM ubuntu AS build
 
 RUN apt-get update && apt-get install -y golang-go
 
-ENV Go111MODULE=off
+ENV GO111MODULE=off
 
 COPY . .
 
