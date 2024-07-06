@@ -1,0 +1,25 @@
+#################################################
+# BASE IMAGE
+#################################################
+
+FORM ubuntu AS build
+
+RUN apt-get update && apt-get install -y golang-go
+
+ENV Go111MODULE=off
+
+COPY . .
+
+RUN CGO_ENABLED=0 go build -o /app .
+
+#################################################
+# MULTI STAGE BUILD
+#################################################
+
+FROM scratch
+
+#Copy the compiled binary in the build stage
+COPY --from=build /app /app
+
+#Setting entrypoint for the container to run the binary
+ENTRYPOINT [ "/app" ]
